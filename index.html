@@ -27,6 +27,27 @@
 </script>
   
   <body>
+
+    <script>//Evita a cópia e adição(terceiros) dos itens na página
+        document.oncontextmenu = () => false;//impede o uso do botão direito do mouse nos itens do site
+        document.ondragstart = () => false;//impede o "arraste" dos arquivos do site
+
+        document.ondragover = (event) => event.preventDefault();//Impede que documentos externos sejam abertos na página
+        document.ondrop = (event) => event.preventDefault();//Impede que documentos externos sejam abertos na página
+
+        //Impede o evento de cópia (Ctrl+C ou clique direito > Copiar)
+        document.addEventListener('copy', (event) => {
+            event.preventDefault(); // Impede o comportamento padrão de cópia
+            console.log('A cópia foi bloqueada.'); // Mensagem de log para depuração
+        });
+
+        //Impede o evento de colagem (Ctrl+V ou clique direito > Colar)
+        document.addEventListener('paste', (event) => {
+            event.preventDefault(); // Impede o comportamento padrão de colagem
+            console.log('A colagem foi bloqueada.'); // Mensagem de log para depuração
+        });
+    </script>
+
     <!--Links para as páginas sobre outros assuntos (INÍCIO) -->
     <div id="container">
       <nav class="menu">
